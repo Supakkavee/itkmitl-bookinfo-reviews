@@ -2,12 +2,6 @@
 
 ## Prerequisite
 
-* Ruby 2.7
-
-```bash
-ruby details.rb 9080
-```
-
 ## Build Docker Image for details service
 ```bash
 docker build -t details .
