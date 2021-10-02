@@ -1,0 +1,9 @@
+services:
+  reviews:
+    build: .
+    image: ghcr.io/supakkavee/bookinfo-reviews:dev
+    ports:
+      - "8082:9080"
+    environment:
+      ENABLE_EXTERNAL_BOOK_SERVICE: "true"
+      RATINGS_SERVICE: http://ratings:8080/
