@@ -7,5 +7,6 @@ spec:
   type: ClusterIP
   ports:
   - port: 8080
+    targetPort: 9080
   selector:
     app: bookinfo-dev-reviews
