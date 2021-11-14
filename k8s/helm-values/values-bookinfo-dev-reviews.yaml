@@ -1,0 +1,19 @@
+reviews:
+  namespace: student14-bookinfo-dev
+  image: ghcr.io/supakkavee/bookinfo-reviews
+  tag: dev
+  replicas: 1
+  imagePullSecrets: registry-bookinfo
+  port: 8082
+  targetPort: 9080
+ingress:
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
+  host: itkmitl.bookinfo.dev.opsta.net
+  path: "/student14/reviews(/|$)(.*)"
+  serviceType: ClusterIP
+extraEnv:
+  SERVICE_VERSION: v1
+  ENABLE_RATINGS: "true"
+  RATINGS_SERVICE: http://bookinfo-dev-ratings:8080
